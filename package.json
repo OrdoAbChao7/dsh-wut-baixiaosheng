@@ -1,0 +1,35 @@
+{
+  "name": "dsh-wut-baixiaosheng",
+  "version": "1.0.0",
+  "description": "Wuhan University of Technology student handbook knowledge base skill for DeepSeek Harness: academic administration, credits and GPA, student discipline, awards and scholarships, graduation and degrees, bundled as structured reference documents.",
+  "license": "MIT",
+  "type": "module",
+  "main": "index.js",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "wut",
+    "skill",
+    "knowledge-base",
+    "student-handbook"
+  ],
+  "files": [
+    "index.js",
+    "SKILL.md",
+    "references",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node index.js --selftest"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
