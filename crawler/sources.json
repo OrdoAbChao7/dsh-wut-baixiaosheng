@@ -1,0 +1,80 @@
+[
+  {
+    "id": "whut-main-tzgg",
+    "name": "武汉理工大学学校官网 - 通知公告",
+    "domain": "whut.edu.cn",
+    "section_url": "https://www.whut.edu.cn/tongzhigonggao/",
+    "base_url": "https://www.whut.edu.cn",
+    "category": "school",
+    "crawl_method": "http_html_parse",
+    "update_frequency": "daily",
+    "access_level": "public",
+    "access_status": "ACTIVE_OK",
+    "last_crawl_time": "2026-11-23T15:26:50.410Z"
+  },
+  {
+    "id": "whut-undergraduate-jwc",
+    "name": "武汉理工大学本科生院（教务处）",
+    "domain": "jwc.whut.edu.cn",
+    "section_url": "http://jwc.whut.edu.cn/tzgg/",
+    "base_url": "http://jwc.whut.edu.cn",
+    "category": "undergraduate-school",
+    "crawl_method": "http_html_parse",
+    "update_frequency": "daily",
+    "access_level": "public",
+    "access_status": "ACTIVE_OK",
+    "last_crawl_time": "2026-11-23T14:30:00Z"
+  },
+  {
+    "id": "whut-student-affairs",
+    "name": "党委学生工作部（处） - 学工在线",
+    "domain": "xgb.whut.edu.cn",
+    "section_url": "http://xgb.whut.edu.cn/tzgg/",
+    "base_url": "http://xgb.whut.edu.cn",
+    "category": "student-affairs",
+    "crawl_method": "http_html_parse",
+    "update_frequency": "weekly",
+    "access_level": "public",
+    "access_status": "ACTIVE_OK",
+    "last_crawl_time": "2026-11-23T14:30:00Z"
+  },
+  {
+    "id": "whut-graduate-school",
+    "name": "武汉理工大学研究生院",
+    "domain": "gd.whut.edu.cn",
+    "section_url": "http://gd.whut.edu.cn/tzgg/",
+    "base_url": "http://gd.whut.edu.cn",
+    "category": "graduate-school",
+    "crawl_method": "http_html_parse",
+    "update_frequency": "weekly",
+    "access_level": "public",
+    "access_status": "ACTIVE_OK",
+    "last_crawl_time": "2026-11-23T14:30:00Z"
+  },
+  {
+    "id": "whut-cst-college",
+    "name": "计算机与人工智能学院官网",
+    "domain": "cst.whut.edu.cn",
+    "section_url": "http://cst.whut.edu.cn/tzgg/",
+    "base_url": "http://cst.whut.edu.cn",
+    "category": "colleges",
+    "crawl_method": "http_html_parse",
+    "update_frequency": "weekly",
+    "access_level": "public",
+    "access_status": "ACTIVE_OK",
+    "last_crawl_time": "2026-11-23T14:30:00Z"
+  },
+  {
+    "id": "whut-network-center",
+    "name": "网络信息中心 / 智慧校园办事大厅",
+    "domain": "wlzx.whut.edu.cn",
+    "section_url": "http://wlzx.whut.edu.cn/tzgg/",
+    "base_url": "http://wlzx.whut.edu.cn",
+    "category": "school",
+    "crawl_method": "http_html_parse",
+    "update_frequency": "monthly",
+    "access_level": "campus_network_required",
+    "access_status": "RESTRICTED_AUTH_REQUIRED",
+    "last_crawl_time": "2026-11-23T14:30:00Z"
+  }
+]

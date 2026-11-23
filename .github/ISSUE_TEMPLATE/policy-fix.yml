@@ -1,0 +1,37 @@
+name: 🔍 提交政策纠错 (Report Policy Error)
+description: 指出当前百晓生知识库中的条款错误、答复偏差或数据不准确
+title: "[政策纠错]: "
+labels: ["policy-fix", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        如果你发现百晓生回答的条款有误、数字不准或与现行规定不符，请在此提交纠错。
+  - type: input
+    id: error-location
+    attributes:
+      label: 出错知识库文件 / 问题
+      description: 指出哪个知识库文件或哪一类问答存在错误
+      placeholder: 例如：xueji-guanli-guiding.md 第25条 或 奖学金互斥问答
+    validations:
+      required: true
+  - type: textarea
+    id: current-statement
+    attributes:
+      label: 当前错误的表述 / 答案
+      placeholder: 百晓生当前回答的内容...
+    validations:
+      required: true
+  - type: textarea
+    id: correct-statement
+    attributes:
+      label: 正确的规定及依据
+      description: 请提供学校官方红头文件、条款原文或官方网站链接
+      placeholder: 依据学校《...办法》第X条，正确规定应当是...
+    validations:
+      required: true
+  - type: textarea
+    id: proof-upload
+    attributes:
+      label: 证明材料上传（可选）
+      description: 可粘贴截图或上传最新文件

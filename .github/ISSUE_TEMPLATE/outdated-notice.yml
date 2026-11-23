@@ -1,0 +1,28 @@
+name: ⏰ 提交过期通知 (Report Outdated Policy)
+description: 反馈百晓生知识库中已被新规取代或废止的旧规定、旧通知
+title: "[过期通知]: "
+labels: ["outdated-notice", "needs-update"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        学校规章制度常年修订，如果你发现某项通知或条款已经废止，请告知我们。
+  - type: input
+    id: old-notice
+    attributes:
+      label: 已过期的制度 / 条款
+      placeholder: 例如：2023年学士学位授予条件 或 2024年选课通知
+    validations:
+      required: true
+  - type: textarea
+    id: new-policy
+    attributes:
+      label: 取代该规定的新政策 / 新文件
+      placeholder: 2025年起学校已发布《...新办法》，其中第X条修订为...
+    validations:
+      required: true
+  - type: input
+    id: new-source-link
+    attributes:
+      label: 新文件官方来源链接
+      placeholder: http://...

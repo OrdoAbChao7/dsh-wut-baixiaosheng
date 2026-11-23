@@ -1,0 +1,45 @@
+name: 💡 提交经验分享 (Share Campus Experience)
+description: 提交非官方但实用的同学就读心得、选课评教、保研经验或车队社团备赛心得
+title: "[经验分享]: "
+labels: ["experience-share", "community-knowledge"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        欢迎分享学长学姐真实就读心得！
+        注：经验分享将单独归类存放在社区经验板块，绝不与学校正式法律法规混淆。
+  - type: input
+    id: experience-title
+    attributes:
+      label: 经验分享主题
+      placeholder: 例如：计算机学院大二选课踩坑与优秀老师推荐 / 智能车队纳新备赛指南
+    validations:
+      required: true
+  - type: dropdown
+    id: experience-category
+    attributes:
+      label: 分享类别
+      options:
+        - 选课推荐与避雷指南
+        - 转专业备考与面试复盘
+        - 推免夏令营与保研经验
+        - 竞赛车队与创新实验室
+        - 考研备考与自习攻略
+        - 校园生活与周边指南
+    validations:
+      required: true
+  - type: textarea
+    id: experience-body
+    attributes:
+      label: 经验正文
+      description: 请详细写下你的建议和经验，支持 Markdown 语法
+      placeholder: 课程难度、给分习惯、面试重点、准备周期等建议...
+    validations:
+      required: true
+  - type: checkboxes
+    id: disclaimer
+    attributes:
+      label: 声明
+      options:
+        - label: 我确认本经验仅代表个人观点，未虚构学校官方政策，已注意保护他人肖像与隐私
+          required: true

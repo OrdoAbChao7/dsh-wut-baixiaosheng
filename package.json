@@ -1,7 +1,7 @@
 {
   "name": "dsh-wut-baixiaosheng",
-  "version": "1.0.0",
-  "description": "Wuhan University of Technology student handbook knowledge base skill for DeepSeek Harness: academic administration, credits and GPA, student discipline, awards and scholarships, graduation and degrees, bundled as structured reference documents.",
+  "version": "2.0.0",
+  "description": "Wuhan University of Technology student handbook knowledge base skill for DeepSeek Harness: academic administration, credits and GPA, student discipline, awards and scholarships, graduation and degrees, bundled with community contribution pipeline and official notice crawler.",
   "license": "MIT",
   "type": "module",
   "main": "index.js",
@@ -12,14 +12,19 @@
     "wut",
     "skill",
     "knowledge-base",
-    "student-handbook"
+    "student-handbook",
+    "community-contribution",
+    "notice-crawler"
   ],
   "files": [
     "index.js",
     "SKILL.md",
     "references",
+    "community",
+    "crawler",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "CONTRIBUTING.md"
   ],
   "dsh": {
     "bundle": {
@@ -27,7 +32,8 @@
     }
   },
   "scripts": {
-    "test": "node index.js --selftest"
+    "test": "node index.js --selftest",
+    "crawler": "node crawler/notice-crawler.js"
   },
   "engines": {
     "node": ">=18"

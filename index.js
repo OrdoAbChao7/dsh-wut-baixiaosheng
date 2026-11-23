@@ -58,15 +58,17 @@ if (process.argv.includes("--selftest")) {
   assert.equal(pkgContent.dsh?.bundle?.patch, "./cordis.patch.yml", "package.json dsh bundle patch configured");
   assert.ok(!pkgContent.dependencies || Object.keys(pkgContent.dependencies).length === 0, "Zero runtime dependencies required");
 
-  // 4. 检查 references 目录文件映射（双向一致性）
+  // 4. 检查 references 目录文件映射（双向一致性，仅比对根目录文件）
   const refsPath = join(DIR, "references");
   assert.ok(existsSync(refsPath), "references/ directory must exist");
-  const diskRefs = readdirSync(refsPath);
+  const diskRefs = readdirSync(refsPath, { withFileTypes: true })
+    .filter((d) => d.isFile())
+    .map((d) => d.name);
   assert.ok(diskRefs.length > 0, "references count > 0");
 
   const mentioned = [...s.body.matchAll(/`([A-Za-z0-9_-]+\.(?:md|txt))`/g)].map((m) => m[1]);
   const uniqueMentioned = [...new Set(mentioned)];
-  const missingOnDisk = uniqueMentioned.filter((f) => !diskRefs.includes(f));
+  const missingOnDisk = uniqueMentioned.filter((f) => !diskRefs.includes(f) && !existsSync(join(DIR, f)));
   assert.deepEqual(missingOnDisk, [], "All files mentioned in SKILL.md must exist on disk: " + missingOnDisk);
 
   const unindexedFiles = diskRefs.filter((f) => !uniqueMentioned.includes(f));
@@ -142,6 +144,27 @@ if (process.argv.includes("--selftest")) {
     }
     console.log(`  ✓ Domain test passed: ${tc.domain}`);
   }
+
+  // 7. V2 知识库分层与待审核隔离区验证
+  const v2SubDirs = [
+    "official-notices/school",
+    "official-notices/undergraduate-school",
+    "official-notices/student-affairs",
+    "official-notices/graduate-school",
+    "official-notices/colleges",
+    "community/approved",
+    "community/pending",
+    "community/archived",
+    "policies",
+  ];
+  for (const sub of v2SubDirs) {
+    assert.ok(existsSync(join(refsPath, sub)), `V2 Subdirectory references/${sub} must exist`);
+  }
+  assert.ok(existsSync(join(refsPath, "community", "pending", "README.md")), "Pending quarantine README exists");
+  assert.ok(existsSync(join(DIR, "community", "contribution-processor.js")), "Contribution processor exists");
+  assert.ok(existsSync(join(DIR, "crawler", "notice-crawler.js")), "Notice crawler exists");
+  assert.ok(existsSync(join(DIR, "crawler", "sources.json")), "Sources registry exists");
+  console.log("  ✓ V2 Knowledge Base hierarchy, crawler & quarantine isolation verified");
 
   console.log(`SELFTEST OK: ${diskRefs.length} references verified, catalog description ${s.description.length} chars, ${uniqueMentioned.length} mentions all resolve cleanly.`);
 }
